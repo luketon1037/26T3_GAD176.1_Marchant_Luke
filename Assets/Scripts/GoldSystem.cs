@@ -1,19 +1,29 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class GoldSystem : MonoBehaviour
 {
-    [SerializeField] private TMP_Text goldText;
-    public int totalGold = 10000;
-
-    private void Update()
+    [SerializeField] public TMP_Text goldText;
+    private float _totalGold = 400f;
+    public float totalGold
     {
-        updateGold();
+        get => _totalGold;
+        set
+        {
+            if (_totalGold != value)
+            {
+                _totalGold = value;
+                goldText.text = "Gold: " + _totalGold.ToString();
+            }
+        }
     }
 
-    // update gold amount
-    private void updateGold()
+    private void Start()
     {
-        goldText.text = $"Gold: {totalGold}";
+        totalGold = _totalGold;
+        goldText.text = "Gold: " + _totalGold.ToString();
     }
+    
 }
+
+
