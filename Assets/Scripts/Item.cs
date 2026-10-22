@@ -9,6 +9,7 @@ public class Item : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GoldSystem GoldSystemReference;
     public void OnPointerClick(PointerEventData eventData)
     {
+        // to buy since it is looking for left click
         if (eventData.button == PointerEventData.InputButton.Left)
             {
                 if (isBought == false && GoldSystemReference.totalGold >= costOfItem)
@@ -17,6 +18,7 @@ public class Item : MonoBehaviour, IPointerClickHandler
                     isBought = true;
                 }
             }
+        // to sell since it is looking for right click
         if (eventData.button == PointerEventData.InputButton.Right)
             {
                 if (isBought == true)

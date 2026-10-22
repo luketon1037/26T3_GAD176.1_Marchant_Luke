@@ -13,7 +13,6 @@ public class GoldSystem : MonoBehaviour
             if (_totalGold != value)
             {
                 _totalGold = value;
-                goldText.text = "Gold: " + _totalGold.ToString();
             }
         }
     }
@@ -23,7 +22,11 @@ public class GoldSystem : MonoBehaviour
         totalGold = _totalGold;
         goldText.text = "Gold: " + _totalGold.ToString();
     }
-    
-}
+
+    private void Update() 
+    {
+        goldText.text = "Gold: " + _totalGold.ToString();
+    }
+    }
 
 
